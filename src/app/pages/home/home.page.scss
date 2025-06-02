@@ -1,0 +1,40 @@
+.memorias {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1rem;
+}
+
+.memoria {
+  border: 1px solid #ccc;
+  padding: 1rem;
+  border-radius: 6px;
+}
+
+.imagem-pequena {
+  max-width: 100%;
+  height: auto;
+  cursor: pointer;
+  margin-top: 0.5rem;
+  border-radius: 4px;
+  transition: transform 0.2s;
+}
+
+.imagem-pequena:hover {
+  transform: scale(1.05);
+}
+
+.modal {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0,0,0,0.8);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.modal img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 8px;
+}

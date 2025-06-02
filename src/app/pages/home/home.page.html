@@ -1,0 +1,20 @@
+<h1>Memórias</h1>
+<a routerLink="/cadastro">Cadastrar Nova Memória</a>
+
+<div class="memorias">
+  <div class="memoria" *ngFor="let memoria of memorias">
+    <h3>{{ memoria.titulo }}</h3>
+    <p>{{ memoria.descricao }}</p>
+    <img
+      *ngIf="getMidiaUrl(memoria.midia)"
+      [src]="getMidiaUrl(memoria.midia)"
+      alt="Imagem da memória"
+      (click)="abrirImagem(getMidiaUrl(memoria.midia)!)"
+      class="imagem-pequena"
+    />
+  </div>
+</div>
+
+<div class="modal" *ngIf="imagemSelecionada" (click)="fecharImagem()">
+  <img [src]="imagemSelecionada" alt="Imagem em tamanho maior" />
+</div>
