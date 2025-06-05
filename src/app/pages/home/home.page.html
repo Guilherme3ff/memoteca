@@ -1,10 +1,12 @@
 <h1>Memórias</h1>
+
 <a routerLink="/cadastro">Cadastrar Nova Memória</a>
 
 <div class="memorias">
   <div class="memoria" *ngFor="let memoria of memorias">
     <h3>{{ memoria.titulo }}</h3>
     <p>{{ memoria.descricao }}</p>
+
     <img
       *ngIf="getMidiaUrl(memoria.midia)"
       [src]="getMidiaUrl(memoria.midia)"
@@ -12,6 +14,21 @@
       (click)="abrirImagem(getMidiaUrl(memoria.midia)!)"
       class="imagem-pequena"
     />
+
+    <button
+      *ngIf="memoria.id"
+      (click)="editarMemoria(memoria.id)"
+      [attr.aria-label]="'Editar memória ' + memoria.titulo">
+      Editar
+    </button>
+
+    <button
+      *ngIf="memoria.id"
+      (click)="excluirMemoria(memoria)"
+      [attr.aria-label]="'Excluir memória ' + memoria.titulo"
+      class="btn-excluir">
+      Excluir
+    </button>
   </div>
 </div>
 

@@ -1,0 +1,33 @@
+<div *ngIf="memoria; else carregando">
+  <h2>{{ memoria.titulo }}</h2>
+  <p>{{ memoria.descricao }}</p>
+  <p><strong>Data:</strong> {{ memoria.data }}</p>
+  <p><strong>Autor:</strong> {{ memoria.autor }}</p>
+
+  <img
+    *ngIf="memoria.midia"
+    [src]="'http://localhost:3000/uploads/' + memoria.midia"
+    alt="Imagem da memória"
+    style="max-width: 100%; height: auto;"
+  />
+
+  <div class="actions">
+    <button 
+      (click)="editarMemoria()" 
+      [attr.aria-label]="'Editar memória ' + memoria.titulo"
+    >
+      Editar
+    </button>
+    <button 
+      (click)="excluirMemoria()" 
+      class="btn-excluir"
+      [attr.aria-label]="'Excluir memória ' + memoria.titulo"
+    >
+      Excluir
+    </button>
+  </div>
+</div>
+
+<ng-template #carregando>
+  <p>Carregando memória...</p>
+</ng-template>

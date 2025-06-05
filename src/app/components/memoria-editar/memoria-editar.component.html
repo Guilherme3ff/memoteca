@@ -1,0 +1,25 @@
+<div *ngIf="memoria">
+  <h2>Editar Memória</h2>
+
+  <form (ngSubmit)="salvar()">
+    <label for="titulo">Título:</label>
+    <input id="titulo" type="text" [(ngModel)]="memoria.titulo" name="titulo" required />
+
+    <label for="descricao">Descrição:</label>
+    <textarea id="descricao" [(ngModel)]="memoria.descricao" name="descricao" required></textarea>
+
+    <label for="data">Data:</label>
+    <input id="data" type="date" [(ngModel)]="memoria.data" name="data" required />
+
+    <label for="autor">Autor:</label>
+    <input id="autor" type="text" [(ngModel)]="memoria.autor" name="autor" required />
+
+    <label for="midia">Imagem:</label>
+    <input id="midia" type="file" (change)="onFileSelected($event)" />
+
+    <button type="submit">Salvar</button>
+    <button type="button" (click)="cancelar()">Cancelar</button>
+  </form>
+</div>
+
+<p *ngIf="!memoria">Carregando...</p>

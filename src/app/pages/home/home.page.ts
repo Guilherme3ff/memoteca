@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { MemoriaService, Memoria } from '../../services/memoria.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule, Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -15,9 +15,13 @@ export class HomePage implements OnInit {
   private uploadsUrl = 'http://localhost:3000/uploads/';
   imagemSelecionada: string | null = null;
 
-  constructor(private memoriaService: MemoriaService) {}
+  constructor(private memoriaService: MemoriaService, private router: Router) {}
 
   ngOnInit() {
+    this.carregarMemorias();
+  }
+
+  carregarMemorias() {
     this.memoriaService.getMemorias().subscribe({
       next: (data) => {
         this.memorias = data.map(memoria => {
@@ -34,7 +38,6 @@ export class HomePage implements OnInit {
     });
   }
 
-  // Função para garantir que só retorna string ou undefined
   getMidiaUrl(midia: string | File | undefined): string | undefined {
     if (typeof midia === 'string') {
       return midia;
@@ -48,5 +51,27 @@ export class HomePage implements OnInit {
 
   fecharImagem() {
     this.imagemSelecionada = null;
+  }
+
+  editarMemoria(id: number) {
+  this.router.navigate(['/editar', id]);
+}
+
+
+  excluirMemoria(memoria: Memoria) {
+    if (confirm(`Tem certeza que deseja excluir a memória "${memoria.titulo}"?`)) {
+      if (memoria.id) {
+        this.memoriaService.deleteMemoria(memoria.id).subscribe({
+          next: () => {
+            alert('Memória excluída com sucesso!');
+            this.carregarMemorias(); // Atualiza a lista após exclusão
+          },
+          error: (err) => {
+            console.error('Erro ao excluir memória', err);
+            alert('Erro ao excluir memória. Tente novamente.');
+          }
+        });
+      }
+    }
   }
 }

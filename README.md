@@ -1,59 +1,31 @@
 # Memoteca
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.2.5.
+Uma aplicação web para registrar e compartilhar memórias.
 
-## Development server
+## Descrição
 
-To start a local development server, run:
+O **Memoteca** permite cadastrar memórias (com título, descrição, data, autor e imagem), visualizar uma lista dessas memórias e ver detalhes de cada uma. Foi desenvolvido em **Angular** no frontend e **Node.js/Express** no backend, com um banco de dados simples em **JSON Server**.
 
-```bash
-ng serve
-```
+Repositório: [https://github.com/Guilherme3ff/memoteca](https://github.com/Guilherme3ff/memoteca)
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## Funcionalidades
 
-## Code scaffolding
+✅ Cadastra,edita e exclui  memórias 
+✅ Upload de imagens associadas às memórias  
+✅ Listagem das memórias salvas  
+✅ Visualização de detalhes da memória  
+✅ Modal para visualizar a imagem em tamanho maior
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## Tecnologias
 
-```bash
-ng generate component component-name
-```
+- **Frontend:** Angular 17
+- **Backend:** JSON Server
+- **Linguagens:** TypeScript, HTML, SCSS
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+## Instalação e execução
 
-```bash
-ng generate --help
-```
-
-## Building
-
-To build the project run:
+Clone o projeto:
 
 ```bash
-ng build
-```
-
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+git clone https://github.com/Guilherme3ff/memoteca.git
+cd memoteca

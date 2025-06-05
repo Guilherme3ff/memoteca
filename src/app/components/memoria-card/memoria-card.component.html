@@ -1,0 +1,8 @@
+
+<div class="card" *ngFor="let memoria of memorias">
+  <h3>{{ memoria.titulo }}</h3>
+  <p>{{ memoria.descricao }}</p>
+  <small>{{ memoria.data }}</small>
+  <button (click)="editar.emit(memoria)">Editar</button>
+  <button (click)="excluir(memoria.id)">Excluir</button>
+</div>
